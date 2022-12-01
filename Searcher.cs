@@ -36,13 +36,12 @@ namespace PhotoGrabber
             {
                 Thread.Sleep(1000); // Wait for chromedriver to load
                 var chromeDriverService = ChromeDriverService.CreateDefaultService();
-                chromeDriverService.HideCommandPromptWindow = false;
+                chromeDriverService.HideCommandPromptWindow = true;
                 ChromeOptions options = new ChromeOptions();
                 string adBlockDirectory = Directory.GetCurrentDirectory() + "\\uBlock-Origin.crx"; // Prevent ad images from being downloaded
                 options.AddExtensions(adBlockDirectory);
- 
                 driver = new ChromeDriver(chromeDriverService, options = options);
-
+              
                 driver.Navigate().GoToUrl(url);
              
                 Thread.Sleep(1000); // Give URL time to load
@@ -83,6 +82,7 @@ namespace PhotoGrabber
 
                     }
                     iter++;
+                    
                     Console.WriteLine(iter);
                     Thread.Sleep(250);
 

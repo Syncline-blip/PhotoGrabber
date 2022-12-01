@@ -42,15 +42,16 @@ namespace PhotoGrabber
             this.Subreddit = new System.Windows.Forms.CheckBox();
             this.Random = new System.Windows.Forms.CheckBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // startBtn
             // 
-            this.startBtn.Location = new System.Drawing.Point(359, 291);
+            this.startBtn.Location = new System.Drawing.Point(348, 320);
             this.startBtn.Name = "startBtn";
-            this.startBtn.Size = new System.Drawing.Size(158, 29);
+            this.startBtn.Size = new System.Drawing.Size(151, 29);
             this.startBtn.TabIndex = 0;
             this.startBtn.Text = "Start Search";
             this.startBtn.UseVisualStyleBackColor = true;
@@ -58,9 +59,9 @@ namespace PhotoGrabber
             // 
             // btnStopProcess
             // 
-            this.btnStopProcess.Location = new System.Drawing.Point(359, 326);
+            this.btnStopProcess.Location = new System.Drawing.Point(348, 285);
             this.btnStopProcess.Name = "btnStopProcess";
-            this.btnStopProcess.Size = new System.Drawing.Size(158, 29);
+            this.btnStopProcess.Size = new System.Drawing.Size(151, 29);
             this.btnStopProcess.TabIndex = 1;
             this.btnStopProcess.Text = "Stop Search";
             this.btnStopProcess.UseVisualStyleBackColor = true;
@@ -70,7 +71,7 @@ namespace PhotoGrabber
             // 
             this.textBox1.Location = new System.Drawing.Point(191, 146);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(255, 27);
+            this.textBox1.Size = new System.Drawing.Size(308, 27);
             this.textBox1.TabIndex = 2;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -89,7 +90,7 @@ namespace PhotoGrabber
             // 
             this.textBox3.Location = new System.Drawing.Point(191, 194);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(255, 27);
+            this.textBox3.Size = new System.Drawing.Size(308, 27);
             this.textBox3.TabIndex = 4;
             // 
             // textBox4
@@ -158,38 +159,59 @@ namespace PhotoGrabber
             // 
             // comboBox1
             // 
+            this.comboBox1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Past hour",
-            "Past day",
-            "Past week",
-            "Past month",
-            "Past year"});
+            "Hot",
+            "Top",
+            "New",
+            "Rising",
+            "Controversial"});
             this.comboBox1.Location = new System.Drawing.Point(191, 240);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(151, 28);
             this.comboBox1.TabIndex = 21;
-            this.comboBox1.Text = "...";
+            this.comboBox1.Text = "Choose Option";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(0, 370);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(564, 29);
-            this.progressBar1.TabIndex = 22;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
+            // comboBox2
+            // 
+            this.comboBox2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Past Hour",
+            "Past Day",
+            "Past Week",
+            "Past Month",
+            "Past Year",
+            "All"});
+            this.comboBox2.Location = new System.Drawing.Point(348, 240);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(151, 28);
+            this.comboBox2.TabIndex = 22;
+            this.comboBox2.Text = "Choose Timeframe";
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(53, 285);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(132, 27);
+            this.textBox8.TabIndex = 23;
+            this.textBox8.Text = "0";
+            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 396);
-            this.Controls.Add(this.progressBar1);
+            this.ClientSize = new System.Drawing.Size(575, 449);
+            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Random);
             this.Controls.Add(this.Subreddit);
@@ -225,8 +247,9 @@ namespace PhotoGrabber
         private CheckBox Subreddit;
         private CheckBox Random;
         private ComboBox comboBox1;
-        private ProgressBar progressBar1;
         private TextBox textBox7;
         private OpenFileDialog openFileDialog1;
+        private ComboBox comboBox2;
+        private TextBox textBox8;
     }
 }

@@ -5,12 +5,17 @@ namespace PhotoGrabber
 {
     public partial class Form1 : Form
     {
+       
         public Form1()
         {
             InitializeComponent();
+            textBox5.ReadOnly= true;
+            textBox6.ReadOnly= true;
+            textBox2.ReadOnly= true;
+            textBox4.ReadOnly= true;
 
 
-
+            // Yhe
 
         }
 
@@ -23,12 +28,14 @@ namespace PhotoGrabber
             if (textBox2.Text == "r/")
             {
                 superUrl = "https://www.popular.pics/reddit/subreddits/posts?r=" + userURL;
+                superUrl = customLinkFilter(superUrl, comboBox1.Text, textBox2.Text, comboBox2.Text);
       
             }
             else if (textBox2.Text == "u/")
             {
 
                 superUrl = "https://www.popular.pics/reddit/u/" + userURL;
+                superUrl = customLinkFilter(superUrl, comboBox1.Text, textBox2.Text, comboBox2.Text);
             }
             Task startSearch = Task.Run(delegate { var = Searcher.searchMedia(superUrl, downloadFolder); });
 
@@ -53,7 +60,7 @@ namespace PhotoGrabber
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,7 +139,14 @@ namespace PhotoGrabber
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(!(comboBox1.Text == "Top" || comboBox1.Text == "Rising" || comboBox1.Text == "Controversial"))
+            {
+                comboBox2.Enabled = false;
+            }
+            else
+            {
+                comboBox2.Enabled = true;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -146,6 +160,147 @@ namespace PhotoGrabber
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private string customLinkFilter(string combinedURl, string sortType, string linkType, string sortTime)
+        {
+            string newUrl = " ";
+            string conjunctionTypeA = "?sort=";
+            string conjunctionTypeB = "&sort=";
+            string conjunctionTypeATime = "?t=";
+            string conjunctionTypeBTime = "&t=";
+            if (linkType == "u/")
+            {
+                switch (sortType)
+                {
+                    case "Hot":
+                        newUrl = combinedURl + conjunctionTypeA + "hot";
+                        break;
+                    case "Top":
+                        newUrl = combinedURl + conjunctionTypeA + "top";
+                        if(sortTime == "Past Hour")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "hour";
+                        }
+                        else if(sortTime == "Past Day")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "day";
+                        }
+                        else if (sortTime == "Past Week")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "week";
+                        }
+                        else if (sortTime == "Past Month")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "month";
+                        }
+                        else if (sortTime == "Past Year")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "year";
+                        }
+                        else if (sortTime == "All")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "all";
+                        }
+                        else
+                        {
+                            return newUrl;
+                        }
+                        break;
+                    case "New":
+                        newUrl = combinedURl + conjunctionTypeA + "new";
+                        break;
+                    default:
+                        newUrl = combinedURl;
+                        break;
+                }
+            }
+            else if(linkType == "r/")
+            {
+                switch (sortType)
+                {
+                    case "Hot":
+                        newUrl = combinedURl + conjunctionTypeB + "hot";
+                        break;
+                    case "Top":
+                        newUrl = combinedURl + conjunctionTypeB + "top";
+                        if (sortTime == "Past Hour")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "hour";
+                        }
+                        else if (sortTime == "Past Day")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "day";
+                        }
+                        else if (sortTime == "Past Week")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "week";
+                        }
+                        else if (sortTime == "Past Month")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "month";
+                        }
+                        else if (sortTime == "Past Year")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "year";
+                        }
+                        else if (sortTime == "All")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "all";
+                        }
+                        else
+                        {
+                            return newUrl;
+                        }
+                        break;
+                    case "New":
+                        newUrl = combinedURl + conjunctionTypeB + "new";
+                        break;
+                    case "Rising":
+                        newUrl = combinedURl + conjunctionTypeB + "rising";
+                        break;
+                    case "Controversial":
+                        newUrl = combinedURl + conjunctionTypeB + "controversial";
+                        if (sortTime == "Past Hour")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "hour";
+                        }
+                        else if (sortTime == "Past Day")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "day";
+                        }
+                        else if (sortTime == "Past Week")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "week";
+                        }
+                        else if (sortTime == "Past Month")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "month";
+                        }
+                        else if (sortTime == "Past Year")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "year";
+                        }
+                        else if (sortTime == "All")
+                        {
+                            newUrl = newUrl + conjunctionTypeBTime + "all";
+                        }
+                        else
+                        {
+                            return newUrl;
+                        }
+                        break;
+                    default:
+                        newUrl = combinedURl;
+                        break;
+                }
+            }
+            return newUrl;
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
         {
 
         }
