@@ -18,6 +18,13 @@ Selecting link type:
 
 ![someshitidk](https://user-images.githubusercontent.com/95333229/205040676-ba6d03e8-14fa-43c8-ae07-23bb639c6f63.PNG)
 
-Filter by dropdown menu adn enter needed information
+Filter by dropdown menu adn enter needed information:
 
 ![wwwwwww](https://user-images.githubusercontent.com/95333229/205040691-4b25336c-6071-4105-b088-8ef238670c4c.PNG)
+
+## WIP Features ##
+
+The following features are a working in progress and will be implemented in the near future:
+  - Loading bar to track progress of download
+  - Allow users to limit how many images they want to download
+  - Compress download directory
