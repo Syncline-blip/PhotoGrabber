@@ -6,7 +6,7 @@ The tool works by providing the tool information such as:
   - If the user is trying to download from a subreddit or a reddit user
   - Provide user/subreddit name (must be exact name)
   - [WIP] Provide a specific folder to download the images
-  - [OPTIONAL + WIP] Provide the tool a sort by, according to reddit's standard post filters (Top, Hot, New, Rising, Controversial)
+  - [OPTIONAL SELECTION] Provide the tool a sort by, according to reddit's standard post filters (Top, Hot, New, Rising, Controversial)
   
 ## Current UI ##
 
