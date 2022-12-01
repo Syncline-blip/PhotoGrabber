@@ -17,7 +17,7 @@ namespace PhotoGrabber
 {
     internal static class Searcher
     {
-        
+
         private static ChromeDriver driver;
         static void Main()
         {
@@ -36,14 +36,15 @@ namespace PhotoGrabber
             {
                 Thread.Sleep(1000); // Wait for chromedriver to load
                 var chromeDriverService = ChromeDriverService.CreateDefaultService();
-                chromeDriverService.HideCommandPromptWindow = true;
+                chromeDriverService.HideCommandPromptWindow = false;
                 ChromeOptions options = new ChromeOptions();
                 string adBlockDirectory = Directory.GetCurrentDirectory() + "\\uBlock-Origin.crx"; // Prevent ad images from being downloaded
                 options.AddExtensions(adBlockDirectory);
-
+ 
                 driver = new ChromeDriver(chromeDriverService, options = options);
 
                 driver.Navigate().GoToUrl(url);
+             
                 Thread.Sleep(1000); // Give URL time to load
                 var Images = driver.FindElements(By.ClassName("post__image")); // Search for class
 
@@ -58,6 +59,7 @@ namespace PhotoGrabber
 
                     Images = driver.FindElements(By.ClassName("post__image")); // For every
                     Images[i].Click();
+                    Console.WriteLine("starting");
                     Thread.Sleep(1000); // Give each click time to load
                     var imageToSave = driver.FindElements(By.TagName("img")); // Now we look for the img tag and the source
                     Directory.CreateDirectory("C:\\imgDown\\" + folderName); // Create a new directory for the search\
@@ -70,7 +72,7 @@ namespace PhotoGrabber
 
                         Random rnd = new Random(); // Generates a random number to create filename
                         int num = rnd.Next();
-
+                        
                         Console.WriteLine(j + " | Viewing: " + imageURL + " | saving as :" + folderName + num + ".jpeg"); // Testing only, outputs currently viewing 
                         WebClient downloadCurImage = new WebClient();
 
@@ -83,7 +85,7 @@ namespace PhotoGrabber
                     iter++;
                     Console.WriteLine(iter);
                     Thread.Sleep(250);
-                   
+
                     driver.Navigate().Back(); // Navigate backwards to click on the image next to previous one.
 
                 }
@@ -94,10 +96,11 @@ namespace PhotoGrabber
             {
                 // Empty, quiet stop
             }
-            catch (System.ObjectDisposedException e)
+            catch(System.ObjectDisposedException e) 
             {
-                // empty, quiet stop
+                //Empty, quiet stop
             }
+
             return iter;
         }
 

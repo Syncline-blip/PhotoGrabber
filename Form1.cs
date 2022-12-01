@@ -8,20 +8,14 @@ namespace PhotoGrabber
         public Form1()
         {
             InitializeComponent();
-           
-            
+
+
 
 
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            /*
-             * Format for new, hot, rising
-             * https://www.popular.pics/reddit/subreddits/posts?r=EarthPorn&sort=
-             * https://www.popular.pics/reddit/u/yourfavoriteteen03?sort=
-             * 
-             */
             string userURL = textBox1.Text;
             string downloadFolder = textBox3.Text;
             string superUrl = " ";
@@ -29,7 +23,7 @@ namespace PhotoGrabber
             if (textBox2.Text == "r/")
             {
                 superUrl = "https://www.popular.pics/reddit/subreddits/posts?r=" + userURL;
-                if()
+      
             }
             else if (textBox2.Text == "u/")
             {
@@ -39,7 +33,7 @@ namespace PhotoGrabber
             Task startSearch = Task.Run(delegate { var = Searcher.searchMedia(superUrl, downloadFolder); });
 
             await Task.Delay(TimeSpan.FromSeconds(5));
- 
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -49,7 +43,7 @@ namespace PhotoGrabber
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
@@ -59,12 +53,12 @@ namespace PhotoGrabber
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
@@ -74,7 +68,7 @@ namespace PhotoGrabber
 
         private void checkedListBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void User_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,7 +92,7 @@ namespace PhotoGrabber
                 Subreddit.Enabled = true;
                 Random.Enabled = true;
             }
-          
+
         }
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
@@ -110,7 +104,7 @@ namespace PhotoGrabber
                 User.Enabled = false;
                 Random.Enabled = false;
             }
-            else if (Subreddit.Checked == false )
+            else if (Subreddit.Checked == false)
             {
 
                 textBox2.Text = "Subreddit or User";
