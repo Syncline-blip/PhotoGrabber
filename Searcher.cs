@@ -32,7 +32,7 @@ namespace PhotoGrabber
             //OpenQA.Selenium.NoSuchWindowException
                 string state = " ";
                 int iter = 0;
-                string destination = "C:\\imgDown\\" + folderName + "\\";
+                string destination = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + folderName + "\\";
                 try
                 {
                     Thread.Sleep(1000); // Wait for chromedriver to load
@@ -62,7 +62,7 @@ namespace PhotoGrabber
                         Console.WriteLine("starting");
                         Thread.Sleep(1000); // Give each click time to load
                         var imageToSave = driver.FindElements(By.TagName("img")); // Now we look for the img tag and the source
-                        Directory.CreateDirectory("C:\\imgDown\\" + folderName); // Create a new directory for the search\
+                        Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + folderName); // Create a new directory for the search\
 
                         // Iterate for every image count
                         for (int j = 0; j < imageToSave.Count(); j++)
