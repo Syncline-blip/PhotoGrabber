@@ -1,4 +1,5 @@
 using System.IO;
+using System.Threading.Tasks;
 
 
 namespace PhotoGrabber
@@ -9,10 +10,10 @@ namespace PhotoGrabber
         public Form1()
         {
             InitializeComponent();
-            textBox5.ReadOnly= true;
-            textBox6.ReadOnly= true;
-            textBox2.ReadOnly= true;
-            textBox4.ReadOnly= true;
+            filterInput.ReadOnly= true;
+            linkTypeBox.ReadOnly= true;
+            typeInput.ReadOnly= true;
+            folderInput.ReadOnly= true;
 
 
             // Yhe
@@ -24,27 +25,42 @@ namespace PhotoGrabber
             string userURL = textBox1.Text;
             string downloadFolder = textBox3.Text;
             string superUrl = " ";
-            int var = 0;
-            if (textBox2.Text == "r/")
+      
+            if (typeInput.Text == "r/")
             {
                 superUrl = "https://www.popular.pics/reddit/subreddits/posts?r=" + userURL;
-                superUrl = customLinkFilter(superUrl, comboBox1.Text, textBox2.Text, comboBox2.Text);
+                superUrl = customLinkFilter(superUrl, comboBox1.Text, typeInput.Text, comboBox2.Text);
       
             }
-            else if (textBox2.Text == "u/")
+            else if (typeInput.Text == "u/")
             {
 
                 superUrl = "https://www.popular.pics/reddit/u/" + userURL;
-                superUrl = customLinkFilter(superUrl, comboBox1.Text, textBox2.Text, comboBox2.Text);
+                superUrl = customLinkFilter(superUrl, comboBox1.Text, typeInput.Text, comboBox2.Text);
             }
-            Task startSearch = Task.Run(delegate { var = Searcher.searchMedia(superUrl, downloadFolder); });
+            int limitValue = trackBar1.Value;
+            var runTask = Task.Run(() => Searcher.searchMedia(superUrl, downloadFolder, limitValue));
+            if (runTask.Status == TaskStatus.Running) ;
+            {
+                status.Text = "Running";
+                status.BackColor = System.Drawing.Color.Yellow;
+            }
 
-            await Task.Delay(TimeSpan.FromSeconds(5));
+            var test = runTask.Status;
 
+            await runTask;
+            if (runTask.IsCompletedSuccessfully)
+            {
+                status.Text = "Finished";
+                status.BackColor = System.Drawing.Color.Green;
+
+            }   
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            status.Text = "Download Halted";
+            status.BackColor = System.Drawing.Color.Red;
             Searcher.quitDriver();
         }
 
@@ -87,14 +103,14 @@ namespace PhotoGrabber
         {
             if (User.Checked == true)
             {
-                textBox2.Text = "u/";
+                typeInput.Text = "u/";
                 textBox1.Enabled = true;
                 Subreddit.Enabled = false;
                 Random.Enabled = false;
             }
             else if (User.Checked == false)
             {
-                textBox2.Text = "Subreddit or User";
+                typeInput.Text = "Subreddit or User";
                 textBox1.Enabled = false; // prevents user from writing random shit
                 Subreddit.Enabled = true;
                 Random.Enabled = true;
@@ -106,7 +122,7 @@ namespace PhotoGrabber
         {
             if (Subreddit.Checked == true)
             {
-                textBox2.Text = "r/";
+                typeInput.Text = "r/";
                 textBox1.Enabled = true;
                 User.Enabled = false;
                 Random.Enabled = false;
@@ -114,7 +130,7 @@ namespace PhotoGrabber
             else if (Subreddit.Checked == false)
             {
 
-                textBox2.Text = "Subreddit or User";
+                typeInput.Text = "Subreddit or User";
                 textBox1.Enabled = false; // prevents user from writing random shti
                 User.Enabled = true;
                 Random.Enabled = true;
@@ -301,6 +317,31 @@ namespace PhotoGrabber
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged_1(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void trackBar_Scroll(object sender, EventArgs e)
+        {
+            textBox7.Text = "" + trackBar1.Value;
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
 
         }
