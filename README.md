@@ -1,4 +1,4 @@
-# PhotoGrabber - A reddit mass image downloader tool
+# PhotoGrabber - A Reddit Mass Image Downloader Tool
 
 ## About ##
 PhotoGrabber is a reddit image downloader that allows users to download posted images on subreddit or images posted by users. 
