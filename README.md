@@ -12,7 +12,7 @@ The tool works by providing the tool information such as:
 
 Initial Landing Page:
 
-![alt text](https://imgur.com/a/4BA0XaM)
+![start](https://user-images.githubusercontent.com/95333229/205420548-ca50b0ed-d581-4deb-8c94-547e328756a5.PNG)
 
 Fill Information Type:
   - This requires if the user wants to search using a subreddit or a user
@@ -21,23 +21,29 @@ Fill Information Type:
   - Choose a file type (mp4 for videos and .gifs, .jpeg for images)
   - Provide an image limit (minimum 1, max 100 (will be increased in the future).
   
-![alt text](https://imgur.com/UL1Rv6e)
+![fillInfo](https://user-images.githubusercontent.com/95333229/205420572-4b497800-11d5-43ea-bee0-7f81e51ba0e8.PNG)
+
+
 
 Running Status:
   - Bar is Yellow when running
- 
-![alt text](https://imgur.com/nydYL8f)
+  - 
+![whileRunning](https://user-images.githubusercontent.com/95333229/205420555-e86c2f63-7c2a-497e-9686-29582eb7a254.PNG)
+
+
 
 Finished Status:
   - Bar is Green when finished downloading
   
-![alt text](https://imgur.com/CyE4zWU)
+![successfulOperation](https://user-images.githubusercontent.com/95333229/205420560-9f7c0782-2019-40b6-8474-ff316c243c08.PNG)
+
 
 
 Failed Status:
   - Bar is Red when download has failed or stopped
   
-![alt text](https://imgur.com/bJbrBbn)
+![failed](https://user-images.githubusercontent.com/95333229/205420566-e0f244d4-1992-41ee-b112-8ec18e0ccbbf.PNG)
+
 
 ## WIP Features ##
 
