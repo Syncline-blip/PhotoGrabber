@@ -62,4 +62,5 @@ The following features are a working in progress and will be implemented in the 
     again not affiliated with them.)
   - THIS IS FOR EDUCATIONAL PURPOSES ONLY, PLEASE DONT SUE ME
   
-## DOWNLOAD AT: [a link](https://github.com/Syncline-blip/PhotoGrabber/blob/master/ReddiPhotoCrawler_beta1.1.zip)
+## DOWNLOAD AT: [ReddiPhotoCrawler_beta1.1.zip](https://github.com/Syncline-blip/PhotoGrabber/files/10145533/ReddiPhotoCrawler_beta1.1.zip)
+
