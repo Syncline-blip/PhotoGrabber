@@ -13,6 +13,8 @@ namespace PhotoGrabber
             filterInput.ReadOnly= true;
             linkTypeBox.ReadOnly= true;
             typeInput.ReadOnly= true;
+            
+   
             folderInput.ReadOnly= true;
 
 
@@ -38,8 +40,9 @@ namespace PhotoGrabber
                 superUrl = "https://www.popular.pics/reddit/u/" + userURL;
                 superUrl = customLinkFilter(superUrl, comboBox1.Text, typeInput.Text, comboBox2.Text);
             }
+            string type = mediaType.Text;
             int limitValue = trackBar1.Value;
-            var runTask = Task.Run(() => Searcher.searchMedia(superUrl, downloadFolder, limitValue));
+            var runTask = Task.Run(() => Searcher.searchMedia(superUrl, downloadFolder, limitValue, type));
             if (runTask.Status == TaskStatus.Running) ;
             {
                 status.Text = "Running";
@@ -342,6 +345,15 @@ namespace PhotoGrabber
         }
 
         private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

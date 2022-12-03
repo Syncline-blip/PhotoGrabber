@@ -49,6 +49,7 @@ namespace PhotoGrabber
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.status = new System.Windows.Forms.TextBox();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.mediaType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -260,11 +261,26 @@ namespace PhotoGrabber
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // mediaType
+            // 
+            this.mediaType.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.mediaType.FormattingEnabled = true;
+            this.mediaType.Items.AddRange(new object[] {
+            ".mp4",
+            ".jpeg"});
+            this.mediaType.Location = new System.Drawing.Point(348, 241);
+            this.mediaType.Name = "mediaType";
+            this.mediaType.Size = new System.Drawing.Size(151, 28);
+            this.mediaType.TabIndex = 105;
+            this.mediaType.Text = "Media Type";
+            this.mediaType.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(591, 554);
+            this.Controls.Add(this.mediaType);
             this.Controls.Add(this.status);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox7);
@@ -313,7 +329,8 @@ namespace PhotoGrabber
         private TextBox limitInput;
         private TextBox textBox7;
         private TextBox textBox2;
-        private TextBox status;
+        public TextBox status;
         private FileSystemWatcher fileSystemWatcher1;
+        private ComboBox mediaType;
     }
 }

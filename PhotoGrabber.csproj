@@ -8,6 +8,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE;_PUBLISH_CHROMEDRIVER;</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>$(DefineConstants)TRACE;_PUBLISH_CHROMEDRIVER;</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Selenium.Support" Version="4.6.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="107.0.5304.6200" />
