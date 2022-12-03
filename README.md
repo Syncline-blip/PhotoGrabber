@@ -27,7 +27,7 @@ Fill Information Type:
 
 Running Status:
   - Bar is Yellow when running
-  - 
+ 
 ![whileRunning](https://user-images.githubusercontent.com/95333229/205420555-e86c2f63-7c2a-497e-9686-29582eb7a254.PNG)
 
 
