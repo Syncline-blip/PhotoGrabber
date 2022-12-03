@@ -12,7 +12,7 @@ The tool works by providing the tool information such as:
 
 Initial Landing Page:
 
-![alt text](https://imgur.com/KA8LG2T)
+![alt text](https://imgur.com/a/4BA0XaM)
 
 Fill Information Type:
   - This requires if the user wants to search using a subreddit or a user
